@@ -1,0 +1,89 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.stage {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 70% at 50% 40%, #0f0730, #05010f 80%);
+}
+.stage :global(canvas) {
+  display: block;
+}
+.overlay {
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+}
+/* Let the canvas receive drags; only interactive UI catches pointer events. */
+.overlay a,
+.overlay button {
+  pointer-events: auto;
+}
+.copy {
+  max-width: 560px;
+  padding-top: 68px;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 18px;
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.6);
+}
+.title {
+  font-size: clamp(40px, 8vw, 78px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.lead {
+  margin: 22px 0 30px;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.6;
+  color: var(--text-dim);
+  max-width: 480px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.dragHint {
+  position: absolute;
+  bottom: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-dim);
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(10, 6, 32, 0.5);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 768px) {
+  .copy {
+    max-width: 100%;
+  }
+  .lead {
+    max-width: 100%;
+  }
+  .dragHint {
+    bottom: 84px;
+    font-size: 12px;
+  }
+}

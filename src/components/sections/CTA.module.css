@@ -1,0 +1,33 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 72px 32px;
+  border-radius: 28px;
+  background:
+    radial-gradient(60% 100% at 50% 0%, rgba(255, 47, 214, 0.18), transparent 70%),
+    radial-gradient(60% 100% at 50% 100%, rgba(34, 211, 238, 0.16), transparent 70%),
+    var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--neon-glow);
+}
+.title {
+  font-size: clamp(30px, 5.5vw, 54px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+}
+.text {
+  max-width: 520px;
+  margin: 0 auto 30px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
