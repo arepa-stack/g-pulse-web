@@ -54,6 +54,8 @@ export interface AppState {
   view: ViewMode
   soundOn: boolean
   autoRotate: boolean
+  /** Marketing copy overlaid on the 3D canvas; hide it to explore freely. */
+  heroVisible: boolean
   quality: Quality
   loaded: boolean
   /** Extra user-applied Y rotation per machine id (radians). */
@@ -65,6 +67,7 @@ export interface AppState {
   clearSelection: () => void
   toggleSound: () => void
   toggleAutoRotate: () => void
+  toggleHeroVisible: () => void
   setQuality: (q: Quality) => void
   setLoaded: (v: boolean) => void
   rotateMachine: (id: string, delta: number) => void

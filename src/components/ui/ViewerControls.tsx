@@ -1,4 +1,4 @@
-import { RotateCcw, RefreshCw, Volume2, VolumeX, Maximize, Eye, MousePointerClick, Move3d, ZoomIn } from 'lucide-react'
+import { RotateCcw, RefreshCw, Volume2, VolumeX, Maximize, Eye, MousePointerClick, Move3d, ZoomIn, PanelTopClose, PanelTopOpen } from 'lucide-react'
 import { useStore } from '../../store/useStore'
 import styles from './ViewerControls.module.css'
 
@@ -11,8 +11,10 @@ export function ViewerControls({ onFullscreen }: Props) {
   const autoRotate = useStore((s) => s.autoRotate)
   const soundOn = useStore((s) => s.soundOn)
   const selectedId = useStore((s) => s.selectedId)
+  const heroVisible = useStore((s) => s.heroVisible)
   const toggleAutoRotate = useStore((s) => s.toggleAutoRotate)
   const toggleSound = useStore((s) => s.toggleSound)
+  const toggleHeroVisible = useStore((s) => s.toggleHeroVisible)
   const clear = useStore((s) => s.clearSelection)
 
   return (
@@ -49,6 +51,15 @@ export function ViewerControls({ onFullscreen }: Props) {
           data-active={soundOn}
         >
           {soundOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
+        </button>
+        <button
+          className={styles.ctrl}
+          onClick={toggleHeroVisible}
+          aria-label={heroVisible ? 'Ocultar texto de portada' : 'Mostrar texto de portada'}
+          aria-pressed={!heroVisible}
+          data-active={!heroVisible}
+        >
+          {heroVisible ? <PanelTopClose size={18} /> : <PanelTopOpen size={18} />}
         </button>
         {selectedId && (
           <button className={styles.ctrl} onClick={clear} aria-label="Cambiar a vista general">

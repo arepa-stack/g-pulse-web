@@ -8,6 +8,7 @@ export const useStore = create<AppState>((set, get) => ({
   view: 'overview',
   soundOn: false,
   autoRotate: true,
+  heroVisible: true,
   quality: 'high',
   loaded: false,
   machineRotation: {},
@@ -38,6 +39,7 @@ export const useStore = create<AppState>((set, get) => ({
   },
   toggleSound: () => set((s) => ({ soundOn: !s.soundOn })),
   toggleAutoRotate: () => set((s) => ({ autoRotate: !s.autoRotate })),
+  toggleHeroVisible: () => set((s) => ({ heroVisible: !s.heroVisible })),
   setQuality: (quality) => set({ quality }),
   setLoaded: (loaded) => set({ loaded }),
   rotateMachine: (id, delta) =>
