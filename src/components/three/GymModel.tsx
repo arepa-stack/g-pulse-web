@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef, useState } from 'react'
+import { Component, Suspense, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, Edges, Html } from '@react-three/drei'
 import { Box3, Vector3, type Group, type Mesh } from 'three'
@@ -44,6 +44,27 @@ function LoadedModel({ model }: { model: MachineModel }) {
       <primitive object={object} />
     </group>
   )
+}
+
+/**
+ * Confines a GLB load/parse failure to THIS machine: it degrades to the neon
+ * placeholder instead of letting the error reach the Canvas boundary and
+ * kill the whole 3D experience.
+ */
+class ModelErrorBoundary extends Component<
+  { modelId: string; fallback: ReactNode; children: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false }
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+  componentDidCatch(err: unknown) {
+    console.error(`[G-Pulse] model "${this.props.modelId}" failed to load:`, err)
+  }
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children
+  }
 }
 
 /** Neon wireframe box shown when a GLB is missing or still loading. */
@@ -116,9 +137,14 @@ export function GymModel({ model }: { model: MachineModel }) {
       }}
     >
       {model.path ? (
-        <Suspense fallback={<Placeholder model={model} label="Cargando…" />}>
-          <LoadedModel model={model} />
-        </Suspense>
+        <ModelErrorBoundary
+          modelId={model.id}
+          fallback={<Placeholder model={model} label="No disponible" />}
+        >
+          <Suspense fallback={<Placeholder model={model} label="Cargando…" />}>
+            <LoadedModel model={model} />
+          </Suspense>
+        </ModelErrorBoundary>
       ) : (
         <Placeholder model={model} label="Próximamente" />
       )}
