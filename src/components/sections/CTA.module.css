@@ -3,14 +3,35 @@
   overflow: hidden;
   text-align: center;
   padding: 72px 32px;
-  border-radius: 28px;
   background:
     radial-gradient(60% 100% at 50% 0%, rgba(255, 47, 214, 0.18), transparent 70%),
     radial-gradient(60% 100% at 50% 100%, rgba(34, 211, 238, 0.16), transparent 70%),
+    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px),
     var(--glass);
+  background-size: auto, auto, 40px 40px, 40px 40px, auto;
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(14px);
   box-shadow: var(--neon-glow);
+  clip-path: polygon(32px 0, calc(100% - 32px) 0, 100% 32px, 100% calc(100% - 32px), calc(100% - 32px) 100%, 32px 100%, 0 calc(100% - 32px), 0 32px);
+}
+/* lineas neon en esquinas */
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 120px;
+}
+.card::before {
+  top: 0;
+  left: 32px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+}
+.card::after {
+  bottom: 0;
+  right: 32px;
+  background: linear-gradient(270deg, var(--magenta), transparent);
 }
 .title {
   font-size: clamp(30px, 5.5vw, 54px);

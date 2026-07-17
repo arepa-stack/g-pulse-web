@@ -1,115 +1,56 @@
-import { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion'
-import { Brain, LineChart, Activity, Dumbbell, History, Sparkles } from 'lucide-react'
+import { motion } from 'framer-motion'
+import {
+  Dumbbell,
+  ClipboardList,
+  Sparkles,
+  LineChart,
+  Ruler,
+  Target,
+  CalendarDays,
+  Users,
+} from 'lucide-react'
 import styles from './Features.module.css'
 
-const TOTAL_FRAMES = 192
-const frameUrl = (i: number) => `/sequences/features/frame-${String(i).padStart(4, '0')}.jpg`
-
 const FEATURES = [
-  { icon: Brain, title: 'Rutinas inteligentes', description: 'Planes que se adaptan a tu nivel y objetivos, generados automáticamente.' },
-  { icon: LineChart, title: 'Seguimiento de progreso', description: 'Visualiza tu evolución con gráficas claras semana a semana.' },
-  { icon: Activity, title: 'Métricas de rendimiento', description: 'Volumen, intensidad y calorías calculadas en cada sesión.' },
-  { icon: Dumbbell, title: 'Entrenamientos personalizados', description: 'Ejercicios ajustados a tu equipo disponible y preferencias.' },
-  { icon: History, title: 'Historial de ejercicios', description: 'Cada serie, peso y repetición guardada para consultarla cuando quieras.' },
-  { icon: Sparkles, title: 'Recomendaciones con IA', description: 'Sugerencias inteligentes para superar estancamientos y mejorar la técnica.' },
+  { icon: Dumbbell, code: 'MOD.01', title: '1360 ejercicios', description: 'Biblioteca completa con músculos trabajados, equipamiento e instrucciones de cada ejercicio.' },
+  { icon: ClipboardList, code: 'MOD.02', title: 'Rutinas personalizadas', description: 'Crea tus propias rutinas o parte de planes listos por grupo muscular.' },
+  { icon: Sparkles, code: 'MOD.03', title: 'Asistente con IA', description: 'La IA analiza tus sesiones y te sugiere cómo progresar y mejorar la técnica.' },
+  { icon: LineChart, code: 'MOD.04', title: 'Progreso y estadísticas', description: 'Gráficas de volumen, records personales e historial completo de entrenamientos.' },
+  { icon: Ruler, code: 'MOD.05', title: 'Medidas corporales', description: 'Registra peso y medidas para ver tu evolución física en el tiempo.' },
+  { icon: Target, code: 'MOD.06', title: 'Metas', description: 'Define objetivos claros y sigue su cumplimiento semana a semana.' },
+  { icon: CalendarDays, code: 'MOD.07', title: 'Agenda semanal', description: 'Planifica qué entrenas cada día de la semana y mantén la constancia.' },
+  { icon: Users, code: 'MOD.08', title: 'Comunidad', description: 'Comparte tus logros y sigue el progreso de otros atletas en el feed.' },
 ]
 
 export function Features() {
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const imagesRef = useRef<HTMLImageElement[]>([])
-  const currentFrameRef = useRef(0)
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  const { scrollYProgress } = useScroll({ target: wrapperRef, offset: ['start start', 'end end'] })
-
-  function drawFrame(index: number) {
-    const canvas = canvasRef.current
-    const img = imagesRef.current[index]
-    const ctx = canvas?.getContext('2d')
-    if (!canvas || !img || !ctx || !img.complete || img.naturalWidth === 0) return
-    const { width, height } = canvas
-    const scale = Math.max(width / img.naturalWidth, height / img.naturalHeight)
-    const w = img.naturalWidth * scale
-    const h = img.naturalHeight * scale
-    ctx.clearRect(0, 0, width, height)
-    ctx.drawImage(img, (width - w) / 2, (height - h) / 2, w, h)
-  }
-
-  // preload sequence
-  useEffect(() => {
-    const imgs: HTMLImageElement[] = []
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
-      const img = new Image()
-      img.src = frameUrl(i + 1)
-      if (i === 0) img.onload = () => drawFrame(0)
-      imgs.push(img)
-    }
-    imagesRef.current = imgs
-  }, [])
-
-  // resize canvas to its container at device resolution
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const resize = () => {
-      const rect = canvas.getBoundingClientRect()
-      canvas.width = rect.width * devicePixelRatio
-      canvas.height = rect.height * devicePixelRatio
-      drawFrame(currentFrameRef.current)
-    }
-    resize()
-    window.addEventListener('resize', resize)
-    return () => window.removeEventListener('resize', resize)
-  }, [])
-
-  useMotionValueEvent(scrollYProgress, 'change', (progress) => {
-    const frame = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.round(progress * (TOTAL_FRAMES - 1))))
-    currentFrameRef.current = frame
-    drawFrame(frame)
-
-    const next = Math.min(FEATURES.length - 1, Math.floor(progress * FEATURES.length))
-    setActiveIndex((prev) => (prev === next ? prev : next))
-  })
-
-  const active = FEATURES[activeIndex]
-
   return (
-    <section id="funciones" ref={wrapperRef} className={styles.scrollTrack}>
-      <div className={styles.sticky}>
-        <canvas ref={canvasRef} className={styles.canvas} />
-        <div className={styles.scrim} />
+    <section id="funciones" className={`section ${styles.section}`}>
+      <div className={styles.gridBg} aria-hidden="true" />
+      <div className="container">
+        <p className="section-eyebrow">Funciones</p>
+        <h2 className="section-title">
+          Todo para <span className="gradient-text">entrenar más inteligente</span>
+        </h2>
 
-        <div className={`container ${styles.overlay}`}>
-          <div className={styles.copy}>
-            <p className="section-eyebrow">Funciones</p>
-            <h2 className={styles.heading}>
-              Todo para <span className="gradient-text">entrenar más inteligente</span>
-            </h2>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active.title}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.35 }}
-              >
-                <div className={styles.iconWrap}>
-                  <active.icon size={22} />
-                </div>
-                <h3 className={styles.copyTitle}>{active.title}</h3>
-                <p className={styles.copyDesc}>{active.description}</p>
-              </motion.div>
-            </AnimatePresence>
-
-            <div className={styles.dots}>
-              {FEATURES.map((f, i) => (
-                <span key={f.title} className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ''}`} />
-              ))}
-            </div>
-          </div>
+        <div className={styles.grid}>
+          {FEATURES.map((f, i) => (
+            <motion.article
+              key={f.title}
+              className={styles.card}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
+            >
+              <span className={styles.code}>{f.code}</span>
+              <div className={styles.iconWrap}>
+                <f.icon size={22} />
+              </div>
+              <h3 className={styles.cardTitle}>{f.title}</h3>
+              <p className={styles.cardDesc}>{f.description}</p>
+              <span className={styles.scanline} aria-hidden="true" />
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

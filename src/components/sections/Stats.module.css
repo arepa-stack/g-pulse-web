@@ -1,10 +1,23 @@
 .panel {
+  position: relative;
   padding: 56px 32px;
-  border-radius: 24px;
-  background: var(--glass);
+  background:
+    linear-gradient(180deg, rgba(34, 211, 238, 0.05), transparent 40%),
+    var(--glass);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(14px);
   box-shadow: var(--neon-glow);
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 32px 100%, 0 calc(100% - 32px));
+}
+/* linea neon superior */
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--magenta), transparent);
 }
 .grid {
   display: grid;

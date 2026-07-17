@@ -3,15 +3,15 @@ import { StatCounter } from '../ui/StatCounter'
 import styles from './Stats.module.css'
 
 const STATS = [
-  { value: 500, suffix: '+', label: 'Ejercicios disponibles' },
+  { value: 1360, suffix: '', label: 'Ejercicios en la biblioteca' },
+  { value: 6, suffix: '', label: 'Grupos musculares cubiertos' },
   { value: 100, suffix: '%', label: 'Seguimiento en tiempo real' },
-  { value: 50, suffix: '+', label: 'Rutinas personalizadas' },
-  { value: 7, suffix: ' días', label: 'Progreso semanal' },
+  { value: 24, suffix: '/7', label: 'Asistente IA disponible' },
 ]
 
 export function Stats() {
   return (
-    <section id="entrenamientos" className="section">
+    <section className="section">
       <div className="container">
         <motion.div
           className={styles.panel}
