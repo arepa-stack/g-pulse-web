@@ -2,12 +2,12 @@ import { motion } from 'framer-motion'
 import styles from './Routines.module.css'
 
 const ROUTINES = [
-  { img: '/img/routines/routine_cover_full_body.png', title: 'Cuerpo completo', tag: 'Fuerza total' },
-  { img: '/img/routines/routine_cover_upper_body.png', title: 'Tren superior', tag: 'Pecho · Espalda · Hombros' },
-  { img: '/img/routines/routine_cover_legs.png', title: 'Piernas', tag: 'Cuádriceps · Glúteos · Femoral' },
-  { img: '/img/routines/routine_cover_arms.png', title: 'Brazos', tag: 'Bíceps · Tríceps · Antebrazo' },
-  { img: '/img/routines/routine_cover_abs.png', title: 'Abdomen', tag: 'Core · Estabilidad' },
-  { img: '/img/routines/routine_cover_cardio.png', title: 'Cardio', tag: 'Resistencia · Quema calórica' },
+  { img: '/img/routines/routine_cover_full_body.jpg', title: 'Cuerpo completo', tag: 'Fuerza total' },
+  { img: '/img/routines/routine_cover_upper_body.jpg', title: 'Tren superior', tag: 'Pecho · Espalda · Hombros' },
+  { img: '/img/routines/routine_cover_legs.jpg', title: 'Piernas', tag: 'Cuádriceps · Glúteos · Femoral' },
+  { img: '/img/routines/routine_cover_arms.jpg', title: 'Brazos', tag: 'Bíceps · Tríceps · Antebrazo' },
+  { img: '/img/routines/routine_cover_abs.jpg', title: 'Abdomen', tag: 'Core · Estabilidad' },
+  { img: '/img/routines/routine_cover_cardio.jpg', title: 'Cardio', tag: 'Resistencia · Quema calórica' },
 ]
 
 function Track({ hidden = false }: { hidden?: boolean }) {
