@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useScrollHeader } from '../../hooks/useScrollHeader'
 import { Button } from '../ui/Button'
 import styles from './Header.module.css'
@@ -21,9 +21,7 @@ export function Header() {
     <header className={`${styles.header} ${scrolled ? styles.solid : ''}`}>
       <div className={`container ${styles.inner}`}>
         <a href="#inicio" className={styles.logo} aria-label="G-Pulse inicio">
-          <span className={styles.logoIcon}>
-            <Zap size={18} />
-          </span>
+          <img src="/icon.webp" alt="" className={styles.logoIcon} />
           G-Pulse
         </a>
 

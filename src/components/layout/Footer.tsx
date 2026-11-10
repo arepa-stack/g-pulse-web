@@ -1,4 +1,4 @@
-import { Zap, Instagram, Twitter, Youtube, Github } from 'lucide-react'
+import { Instagram, Twitter, Youtube, Github } from 'lucide-react'
 import styles from './Footer.module.css'
 
 const NAV = [
@@ -21,9 +21,7 @@ export function Footer() {
       <div className={`container ${styles.grid}`}>
         <div className={styles.brand}>
           <a href="#inicio" className={styles.logo}>
-            <span className={styles.logoIcon}>
-              <Zap size={16} />
-            </span>
+            <img src="/icon.webp" alt="" className={styles.logoIcon} />
             G-Pulse
           </a>
           <p className={styles.tag}>Live Strong. Live Future.</p>

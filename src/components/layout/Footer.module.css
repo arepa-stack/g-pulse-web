@@ -1,13 +1,13 @@
 .footer {
   border-top: 1px solid var(--glass-border);
   background: rgba(5, 1, 15, 0.6);
-  margin-top: 40px;
+  margin-top: 80px;
 }
 .grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 32px;
-  padding: 56px 24px 40px;
+  padding: 72px 24px 64px;
 }
 .logo {
   display: inline-flex;
@@ -17,13 +17,9 @@
   font-weight: 900;
 }
 .logoIcon {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 8px;
-  color: #0a0620;
-  background: linear-gradient(120deg, var(--cyan), var(--magenta));
 }
 .tag {
   margin-top: 12px;
@@ -73,7 +69,7 @@
 }
 .bottom {
   border-top: 1px solid var(--glass-border);
-  padding: 22px 0;
+  padding: 32px 0 40px;
   font-size: 13px;
   color: var(--text-dim);
   text-align: center;

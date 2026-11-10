@@ -49,6 +49,6 @@ export const FAQ = [
   { q: '¿G-Pulse es gratis?', a: 'Sí. El plan Basic es gratuito e incluye la biblioteca completa, rutinas, progreso y comunidad. Los planes Pro y Expert amplían el uso del coach con IA.' },
   { q: '¿En qué dispositivos funciona?', a: 'Por ahora en Android a través de Google Play.' },
   { q: '¿Necesito ir a un gimnasio?', a: 'No. Puedes filtrar ejercicios por el equipo que tengas, incluso solo con tu peso corporal.' },
-  { q: '¿Mis datos están seguros?', a: 'Tu cuenta se protege con Firebase Authentication y tus datos de entrenamiento solo los ves tú, salvo lo que decidas publicar en la comunidad.' },
+  { q: '¿Mis datos están seguros?', a: 'Sí. Tu cuenta está protegida con inicio de sesión seguro y en la comunidad solo aparece lo que tú decides publicar.' },
   { q: '¿Sirve si soy principiante?', a: 'Sí. Cada ejercicio trae animación e instrucciones, y la IA adapta la rutina a tu nivel.' },
 ]
