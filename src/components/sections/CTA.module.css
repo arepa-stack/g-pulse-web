@@ -1,54 +1,95 @@
 .card {
   position: relative;
   overflow: hidden;
-  text-align: center;
-  padding: 72px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 64px 56px;
   background:
-    radial-gradient(60% 100% at 50% 0%, rgba(255, 47, 214, 0.18), transparent 70%),
-    radial-gradient(60% 100% at 50% 100%, rgba(34, 211, 238, 0.16), transparent 70%),
-    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    radial-gradient(60% 100% at 0% 0%, rgba(255, 47, 214, 0.18), transparent 70%),
+    radial-gradient(60% 100% at 100% 100%, rgba(34, 211, 238, 0.16), transparent 70%),
     var(--glass);
-  background-size: auto, auto, 40px 40px, 40px 40px, auto;
   border: 1px solid var(--glass-border);
+  border-radius: 28px;
   backdrop-filter: blur(14px);
   box-shadow: var(--neon-glow);
-  clip-path: polygon(32px 0, calc(100% - 32px) 0, 100% 32px, 100% calc(100% - 32px), calc(100% - 32px) 100%, 32px 100%, 0 calc(100% - 32px), 0 32px);
-}
-/* lineas neon en esquinas */
-.card::before,
-.card::after {
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: 120px;
-}
-.card::before {
-  top: 0;
-  left: 32px;
-  background: linear-gradient(90deg, var(--cyan), transparent);
-}
-.card::after {
-  bottom: 0;
-  right: 32px;
-  background: linear-gradient(270deg, var(--magenta), transparent);
 }
 .title {
-  font-size: clamp(30px, 5.5vw, 54px);
+  font-size: clamp(30px, 5vw, 50px);
   font-weight: 900;
   letter-spacing: -0.03em;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  max-width: 16ch;
 }
 .text {
-  max-width: 520px;
-  margin: 0 auto 30px;
-  font-size: 16px;
-  line-height: 1.6;
+  margin-bottom: 30px;
+  font-size: 17px;
   color: var(--text-dim);
 }
-.actions {
+.play {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px 12px 18px;
+  border-radius: 14px;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.play:hover {
+  border-color: var(--cyan);
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px);
+}
+.play span {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.play small {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.soon {
+  cursor: default;
+  opacity: 0.75;
+}
+.soon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.qr {
+  flex: none;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  background: rgba(5, 1, 15, 0.6);
+}
+.qr p {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+@media (max-width: 760px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    padding: 48px 24px;
+  }
+  .title {
+    margin-inline: auto;
+  }
+  /* QR useless on the phone that would scan it */
+  .qr {
+    display: none;
+  }
 }

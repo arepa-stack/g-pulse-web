@@ -37,7 +37,7 @@ export function Button({
 
   if (href) {
     return (
-      <motion.a href={href} className={cls} {...motionProps} {...aria}>
+      <motion.a href={href} className={cls} onClick={onClick} {...motionProps} {...aria}>
         {inner}
       </motion.a>
     )

@@ -8,7 +8,6 @@ import { ViewerControls } from '../ui/ViewerControls'
 import { Button } from '../ui/Button'
 import { WebGLFallback } from '../ui/WebGLFallback'
 import { hasWebGL } from '../../utils/webgl'
-import { DOWNLOAD_URL } from '../../config/app'
 import { useStore } from '../../store/useStore'
 import styles from './Hero.module.css'
 
@@ -61,10 +60,10 @@ export function Hero() {
                   gimnasio futurista que puedes explorar en 3D.
                 </p>
                 <div className={styles.actions}>
-                  <Button href="#experiencia" icon={<Compass size={18} />}>
-                    Explorar gimnasio
+                  <Button href="#app" icon={<Compass size={18} />}>
+                    Ver la app
                   </Button>
-                  <Button variant="outline" href={DOWNLOAD_URL} icon={<Download size={18} />}>
+                  <Button variant="outline" href="#descargar" icon={<Download size={18} />}>
                     Descargar aplicación
                   </Button>
                 </div>

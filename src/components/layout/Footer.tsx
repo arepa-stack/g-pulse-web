@@ -3,9 +3,10 @@ import styles from './Footer.module.css'
 
 const NAV = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#experiencia', label: 'Experiencia 3D' },
+  { href: '#app', label: 'La app' },
   { href: '#funciones', label: 'Funciones' },
-  { href: '#entrenamientos', label: 'Entrenamientos' },
+  { href: '#planes', label: 'Planes' },
+  { href: '#faq', label: 'FAQ' },
 ]
 const SOCIAL = [
   { icon: Instagram, label: 'Instagram' },

@@ -3,15 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Zap } from 'lucide-react'
 import { useScrollHeader } from '../../hooks/useScrollHeader'
 import { Button } from '../ui/Button'
-import { DOWNLOAD_URL } from '../../config/app'
 import styles from './Header.module.css'
 
 const LINKS = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#experiencia', label: 'Experiencia 3D' },
+  { href: '#app', label: 'La app' },
   { href: '#funciones', label: 'Funciones' },
-  { href: '#entrenamientos', label: 'Entrenamientos' },
-  { href: '#descargar', label: 'Descargar app' },
+  { href: '#planes', label: 'Planes' },
+  { href: '#faq', label: 'FAQ' },
 ]
 
 export function Header() {
@@ -37,7 +36,7 @@ export function Header() {
         </nav>
 
         <div className={styles.cta}>
-          <Button href="#descargar">Comenzar</Button>
+          <Button href="#descargar">Descargar</Button>
         </div>
 
         <button
@@ -64,7 +63,7 @@ export function Header() {
                 {l.label}
               </a>
             ))}
-            <Button href={DOWNLOAD_URL}>Comenzar</Button>
+            <Button href="#descargar" onClick={() => setOpen(false)}>Descargar</Button>
           </motion.nav>
         )}
       </AnimatePresence>

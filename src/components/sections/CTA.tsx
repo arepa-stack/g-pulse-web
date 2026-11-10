@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
-import { Download, ArrowRight } from 'lucide-react'
-import { Button } from '../ui/Button'
+import { QRCodeSVG } from 'qrcode.react'
 import { DOWNLOAD_URL } from '../../config/app'
 import styles from './CTA.module.css'
+
+const live = DOWNLOAD_URL.startsWith('http')
 
 export function CTA() {
   return (
@@ -15,23 +16,36 @@ export function CTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="section-eyebrow">Comienza hoy</p>
-          <h2 className={styles.title}>
-            Convierte cada entrenamiento<br />
-            <span className="gradient-text">en progreso</span>
-          </h2>
-          <p className={styles.text}>
-            Descarga G-Pulse y lleva tu evolución al siguiente nivel. Mide, entrena y
-            supera tus límites.
-          </p>
-          <div className={styles.actions}>
-            <Button href={DOWNLOAD_URL} icon={<Download size={18} />}>
-              Descargar aplicación
-            </Button>
-            <Button variant="outline" href={DOWNLOAD_URL} icon={<ArrowRight size={18} />}>
-              Comenzar ahora
-            </Button>
+          <div className={styles.copy}>
+            <p className="section-eyebrow">Comienza hoy</p>
+            <h2 className={styles.title}>
+              Convierte cada entrenamiento <span className="gradient-text">en progreso</span>
+            </h2>
+            <p className={styles.text}>Gratis en Android. Crea tu cuenta y entrena hoy mismo.</p>
+
+            <a
+              href={live ? DOWNLOAD_URL : undefined}
+              className={`${styles.play} ${live ? '' : styles.soon}`}
+              aria-disabled={!live}
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <path fill="currentColor" d="M4 2.5v19a1 1 0 0 0 1.5.86l16-9.5a1 1 0 0 0 0-1.72l-16-9.5A1 1 0 0 0 4 2.5z" />
+              </svg>
+              <span>
+                <small>{live ? 'Disponible en' : 'Muy pronto en'}</small>
+                Google Play
+              </span>
+            </a>
           </div>
+
+          {live && (
+            <div className={styles.qr}>
+              <QRCodeSVG value={DOWNLOAD_URL} size={140} bgColor="transparent" fgColor="#eef2ff" />
+              <p>Escanea con tu teléfono</p>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
