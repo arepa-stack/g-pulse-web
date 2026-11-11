@@ -41,7 +41,7 @@ export function Routines() {
             Rutinas para <span className="gradient-text">cada grupo muscular</span>
           </h2>
           <p className={styles.subtitle}>
-            Planes listos para empezar o crea los tuyos con la biblioteca de 1360 ejercicios.
+            Planes listos para empezar o crea los tuyos con la biblioteca de más de 1300 ejercicios.
           </p>
         </motion.div>
       </div>

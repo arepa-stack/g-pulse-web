@@ -5,7 +5,6 @@
 import { Ruler, Target, CalendarDays, Heart, type LucideIcon } from 'lucide-react'
 
 // ponytail: single placeholder until real captures exist
-const PH = '/img/screens/placeholder.svg'
 
 export interface Step {
   title: string
@@ -14,10 +13,10 @@ export interface Step {
 }
 
 export const TOUR: Step[] = [
-  { title: 'Elige o crea tu rutina', text: 'Parte de una rutina lista por grupo muscular, explora las de la comunidad o arma la tuya desde cero.', screen: PH /* rutinas.png */ },
-  { title: 'Entrena con guía', text: 'Cada ejercicio con su animación, temporizador de descanso y sonidos que te marcan el ritmo.', screen: PH /* sesion.png */ },
-  { title: 'Registra cada serie', text: 'Peso y repeticiones en segundos. G-Pulse detecta tus récords personales automáticamente.', screen: PH /* series.png */ },
-  { title: 'Mira cómo avanzas', text: 'Volumen, historial y evolución por ejercicio. Datos claros para saber si estás progresando.', screen: PH /* progreso.png */ },
+  { title: 'Elige o crea tu rutina', text: 'Parte de una rutina lista por grupo muscular, explora las de la comunidad o arma la tuya desde cero.', screen: '/img/screens/rutinas.jpg' },
+  { title: 'Entrena con guía', text: 'Cada ejercicio con su animación, temporizador de descanso y sonidos que te marcan el ritmo.', screen: '/img/screens/sesion.jpg' },
+  { title: 'Registra cada serie', text: 'Peso y repeticiones en segundos. G-Pulse detecta tus récords personales automáticamente.', screen: '/img/screens/series.jpg' },
+  { title: 'Mira cómo avanzas', text: 'Volumen, historial y evolución por ejercicio. Datos claros para saber si estás progresando.', screen: '/img/screens/progreso.jpg' },
 ]
 
 export interface Highlight extends Step {
@@ -25,9 +24,9 @@ export interface Highlight extends Step {
 }
 
 export const HIGHLIGHTS: Highlight[] = [
-  { eyebrow: 'Coach con IA', title: 'Rutinas creadas para ti en segundos', text: 'Dile a la IA qué músculo quieres trabajar, tu nivel y el equipo que tienes. G-Pulse genera una rutina completa lista para entrenar.', screen: PH /* ia.png */ },
-  { eyebrow: 'Biblioteca', title: '1360 ejercicios con animación', text: 'Cada ejercicio con músculos trabajados, equipamiento e instrucciones paso a paso. Busca, filtra y guarda tus favoritos.', screen: PH /* biblioteca.png */ },
-  { eyebrow: 'Comunidad', title: 'Entrena acompañado', text: 'Sigue a otros atletas, descubre sus rutinas públicas, dales like y cópialas a tu biblioteca con un toque.', screen: PH /* explorar.png */ },
+  { eyebrow: 'Coach con IA', title: 'Rutinas creadas para ti en segundos', text: 'Dile a la IA qué músculo quieres trabajar, tu nivel y el equipo que tienes. G-Pulse genera una rutina completa lista para entrenar.', screen: '/img/screens/ia.jpg' },
+  { eyebrow: 'Biblioteca', title: 'Más de 1300 ejercicios con animación', text: 'Cada ejercicio con músculos trabajados, equipamiento e instrucciones paso a paso. Busca, filtra y guarda tus favoritos.', screen: '/img/screens/biblioteca.jpg' },
+  { eyebrow: 'Comunidad', title: 'Entrena acompañado', text: 'Sigue a otros atletas, descubre sus rutinas públicas, dales like y cópialas a tu biblioteca con un toque.', screen: '/img/screens/explorar.jpg' },
 ]
 
 export const EXTRAS: { icon: LucideIcon; title: string; text: string }[] = [
@@ -43,7 +42,7 @@ export const PLANS = [
   { name: 'Pro', price: 'Próximamente', ai: '3 rutinas con IA', featured: true },
   { name: 'Expert', price: 'Próximamente', ai: '5 rutinas con IA', featured: false },
 ]
-export const PLAN_COMMON = ['Biblioteca de 1360 ejercicios', 'Rutinas personalizadas', 'Progreso y récords', 'Comunidad']
+export const PLAN_COMMON = ['Biblioteca de +1300 ejercicios', 'Rutinas personalizadas', 'Progreso y récords', 'Comunidad']
 
 export const FAQ = [
   { q: '¿G-Pulse es gratis?', a: 'Sí. El plan Basic es gratuito e incluye la biblioteca completa, rutinas, progreso y comunidad. Los planes Pro y Expert amplían el uso del coach con IA.' },
