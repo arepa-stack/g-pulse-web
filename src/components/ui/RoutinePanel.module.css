@@ -26,7 +26,7 @@
 }
 .launcher:hover {
   border-color: var(--cyan);
-  box-shadow: 0 0 14px rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 14px rgba(165, 61, 255, 0.35);
 }
 
 .picker {
@@ -58,14 +58,14 @@
   margin-bottom: 8px;
   border-radius: 12px;
   border: 1px solid var(--glass-border);
-  background: rgba(122, 31, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
 }
 .routineOption:hover {
   border-color: var(--magenta);
-  background: rgba(255, 47, 214, 0.12);
+  background: rgba(165, 61, 255, 0.12);
 }
 .routineName {
   font-size: 13px;
@@ -145,11 +145,11 @@
   transition: background 0.2s;
 }
 .dot[data-done='true'] {
-  background: rgba(34, 211, 238, 0.55);
+  background: rgba(165, 61, 255, 0.55);
 }
 .dot[data-active='true'] {
-  background: var(--magenta, #ff2fd6);
-  box-shadow: 0 0 8px rgba(255, 47, 214, 0.6);
+  background: var(--magenta, #a53dff);
+  box-shadow: 0 0 8px rgba(165, 61, 255, 0.6);
 }
 .exercise {
   display: flex;
@@ -164,7 +164,7 @@
   font-size: 11px;
   font-weight: 700;
   color: var(--cyan);
-  border: 1px solid rgba(34, 211, 238, 0.35);
+  border: 1px solid rgba(165, 61, 255, 0.35);
   border-radius: 999px;
   padding: 3px 8px;
 }
@@ -180,8 +180,8 @@
   gap: 6px;
   padding: 7px 11px;
   border-radius: 10px;
-  background: rgba(34, 211, 238, 0.08);
-  border: 1px solid rgba(34, 211, 238, 0.2);
+  background: rgba(165, 61, 255, 0.08);
+  border: 1px solid rgba(165, 61, 255, 0.2);
   font-size: 12.5px;
   font-weight: 600;
   color: var(--cyan);
@@ -197,7 +197,7 @@
   font-weight: 600;
   padding: 5px 10px;
   border-radius: 999px;
-  background: linear-gradient(100deg, rgba(122, 31, 255, 0.25), rgba(255, 47, 214, 0.2));
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--glass-border);
 }
 .tip {
@@ -209,7 +209,7 @@
   color: var(--text-dim);
   padding: 10px 12px;
   border-radius: 12px;
-  background: rgba(122, 31, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--glass-border);
   margin-bottom: 14px;
 }
@@ -247,11 +247,12 @@
   cursor: default;
 }
 .navPrimary {
-  background: linear-gradient(100deg, rgba(122, 31, 255, 0.5), rgba(255, 47, 214, 0.4));
-  border-color: rgba(255, 47, 214, 0.5);
+  background: var(--neon);
+  color: #fff;
+  border-color: rgba(165, 61, 255, 0.5);
 }
 .navPrimary:hover {
-  box-shadow: 0 0 16px rgba(255, 47, 214, 0.45);
+  box-shadow: 0 0 16px rgba(165, 61, 255, 0.45);
 }
 .appNote {
   display: flex;

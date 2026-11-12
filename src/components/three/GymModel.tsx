@@ -83,7 +83,7 @@ function Placeholder({ model, label }: { model: MachineModel; label: string }) {
         />
         <Edges color="#22d3ee" />
       </mesh>
-      <Html center distanceFactor={12} position={[0, h * 0.15, 0]}>
+      <Html center distanceFactor={12} position={[0, h * 0.15, 0]} zIndexRange={[3, 0]}>
         <div className="model-placeholder-label">{label}</div>
       </Html>
     </group>

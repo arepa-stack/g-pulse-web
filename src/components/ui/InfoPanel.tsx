@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { X, Dumbbell, Flame, Gauge, ArrowLeft, PlusCircle, RotateCcw, RotateCw } from 'lucide-react'
 import { useStore } from '../../store/useStore'
 import { getModel } from '../../config/models'
-import { Button } from './Button'
+import { Button } from './button'
 import styles from './InfoPanel.module.css'
 
 /** Side panel (desktop) / bottom sheet (mobile) for the selected machine. */
@@ -80,11 +80,11 @@ export function InfoPanel() {
           </div>
 
           <div className={styles.actions}>
-            <Button icon={<PlusCircle size={17} />}>Ver ejercicio</Button>
-            <Button variant="outline" icon={<PlusCircle size={17} />}>
+            <Button size="lg" className="w-full"><PlusCircle /> Ver ejercicio</Button>
+            <Button size="lg" variant="outline" className="w-full"><PlusCircle />
               Agregar a rutina
             </Button>
-            <Button variant="ghost" icon={<ArrowLeft size={16} />} onClick={clear}>
+            <Button variant="ghost" className="w-full text-zinc-400" onClick={clear}><ArrowLeft />
               Volver a la vista general
             </Button>
           </div>

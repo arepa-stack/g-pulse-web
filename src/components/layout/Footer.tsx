@@ -1,13 +1,6 @@
 import { Instagram, Twitter, Youtube, Github } from 'lucide-react'
-import styles from './Footer.module.css'
+import { Logo, NAV_LINKS } from './Header'
 
-const NAV = [
-  { href: '#inicio', label: 'Inicio' },
-  { href: '#app', label: 'La app' },
-  { href: '#funciones', label: 'Funciones' },
-  { href: '#planes', label: 'Planes' },
-  { href: '#faq', label: 'FAQ' },
-]
 const SOCIAL = [
   { icon: Instagram, label: 'Instagram' },
   { icon: Twitter, label: 'Twitter' },
@@ -17,47 +10,44 @@ const SOCIAL = [
 
 export function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={`container ${styles.grid}`}>
-        <div className={styles.brand}>
-          <a href="#inicio" className={styles.logo}>
-            <img src="/icon.webp" alt="" className={styles.logoIcon} />
-            G-Pulse
-          </a>
-          <p className={styles.tag}>Live Strong. Live Future.</p>
+    <footer className="border-t border-white/5">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr_auto]">
+        <div>
+          <Logo />
+          <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">Live Strong. Live Future.</p>
         </div>
 
-        <nav className={styles.col} aria-label="Navegación del pie">
-          <h4 className={styles.colTitle}>Navegación</h4>
-          {NAV.map((n) => (
-            <a key={n.href} href={n.href} className={styles.link}>
+        <nav className="grid content-start gap-2.5 text-sm" aria-label="Navegación del pie">
+          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wider text-zinc-500">Producto</h4>
+          {NAV_LINKS.map((n) => (
+            <a key={n.href} href={n.href} className="text-zinc-400 transition-colors hover:text-white">
               {n.label}
             </a>
           ))}
         </nav>
 
-        <div className={styles.col}>
-          <h4 className={styles.colTitle}>Legal</h4>
-          <a href="#" className={styles.link}>Política de privacidad</a>
-          <a href="#" className={styles.link}>Términos y condiciones</a>
+        <div className="grid content-start gap-2.5 text-sm">
+          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wider text-zinc-500">Legal</h4>
+          <a href="#" className="text-zinc-400 transition-colors hover:text-white">Política de privacidad</a>
+          <a href="#" className="text-zinc-400 transition-colors hover:text-white">Términos y condiciones</a>
         </div>
 
-        <div className={styles.col}>
-          <h4 className={styles.colTitle}>Síguenos</h4>
-          <div className={styles.social}>
-            {SOCIAL.map((s) => (
-              <a key={s.label} href="#" className={styles.socialLink} aria-label={s.label}>
-                <s.icon size={18} />
-              </a>
-            ))}
-          </div>
+        <div className="flex gap-2 md:content-start">
+          {SOCIAL.map((s) => (
+            <a
+              key={s.label}
+              href="#"
+              aria-label={s.label}
+              className="grid size-10 place-items-center rounded-full border border-white/10 text-zinc-400 transition hover:border-white/20 hover:text-neon"
+            >
+              <s.icon size={17} />
+            </a>
+          ))}
         </div>
       </div>
 
-      <div className={styles.bottom}>
-        <div className="container">
-          © {2026} G-Pulse. Todos los derechos reservados.
-        </div>
+      <div className="border-t border-white/5 py-6 text-center font-mono text-xs text-zinc-600">
+        © {new Date().getFullYear()} G-Pulse. Todos los derechos reservados.
       </div>
     </footer>
   )
